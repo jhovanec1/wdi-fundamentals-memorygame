@@ -42,7 +42,12 @@ a {
 	margin:0 20px;
 	border-bottom: 2px solid transparent;
 }
-
+button {
+	color: white;
+	background-color: red;
+	font-weight: 500;
+	font-size: 30px;
+}
 h2{
 	font-family: Raleway;
 	color:#0D2C40;

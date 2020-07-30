@@ -1,5 +1,5 @@
 console.log("Up and running!")
-//Create set of cards
+//Create object array for set of cards and their details
 let cards = [ 
 {
 	rank: "queen",
@@ -23,10 +23,11 @@ let cards = [
 }
 ];
 
-//Create empty array for flipped set
+//Create empty array for what user flipped
 let cardsInPlay = [];
 
-
+//function for determining if 2 cards were flipped and if they match.
+//Popup to inform user
 function checkForMatch() {
 	
 	if (cardsInPlay.length === 2) {
@@ -40,7 +41,8 @@ function checkForMatch() {
 	}
 }
 
-
+//function for "flipping" the card thats clicked on and 
+//then starting checkForMatch function
 function flipCard() {
 	let cardId = this.getAttribute('data-id');
 	this.setAttribute('src' , cards[cardId].cardImage);
@@ -51,7 +53,7 @@ function flipCard() {
 	checkForMatch();
 }
 
-
+//function for initializing the starting board in html
 function createBoard() {
 	for (let i = 0; i < cards.length; i++) {
 		let cardElement = document.createElement('img');
@@ -61,4 +63,11 @@ function createBoard() {
 		document.getElementById('game-board').appendChild(cardElement);
 	}
 }
+function reset() {
+	location.reload();
+}
+//Execute createboard function
 createBoard();
+//Have reset button reload page
+let resetButton = document.getElementByType('button');
+resetButton.addEventListener('click', reset);
